@@ -13,5 +13,6 @@ public interface BoardDao {
     Board selectBoardById(int boardId);
     int insertBoard(BoardRequest boardRequest);
     int deleteBoardById(int boardId);
-    int updateBoardById(int boardId, BoardRequest boardRequest);
+    int updateBoardById(BoardRequest boardRequest, int boardId);
+
 }

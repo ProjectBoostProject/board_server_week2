@@ -43,7 +43,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void updateBoardById(int boardId, BoardRequest boardRequest) {
-        int updateBoard = boardDao.updateBoardById(boardId, boardRequest);
+        int updateBoard = boardDao.updateBoardById(boardRequest, boardId);
         if(updateBoard != 1) {
             log.error("게시판 수정 중 에러가 발생하였습니다.");
         }

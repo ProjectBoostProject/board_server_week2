@@ -20,7 +20,6 @@ CREATE TABLE Reply
     content VARCHAR(999) NOT NULL,
     password VARCHAR(20) NOT NULL,
     create_date TIMESTAMP  DEFAULT NOW(),
-    update_date TIMESTAMP  DEFAULT NOW(),
     FOREIGN KEY (board_id)
     REFERENCES Board(id) ON DELETE CASCADE
 );
