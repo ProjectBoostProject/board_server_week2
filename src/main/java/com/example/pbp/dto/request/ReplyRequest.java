@@ -1,13 +1,11 @@
-package com.example.pbp.dto;
+package com.example.pbp.dto.request;
 
 import lombok.Data;
 
 @Data
-public class Reply {
-    private int id;
+public class ReplyRequest {
     private Integer boardId;
     private String writer;
     private String content;
     private String password;
-    private String createDate;
 }
