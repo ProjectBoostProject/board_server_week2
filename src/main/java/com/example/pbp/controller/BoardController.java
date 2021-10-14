@@ -19,8 +19,9 @@ public class BoardController {
     private BoardService boardService;
 
     @GetMapping(path = "/boards/{menuId}")
-    public BoardsResponse getBoards(@PathVariable(name = "menuId") int menuId) {
-        return boardService.getBoardsResponse(menuId);
+    public BoardsResponse getBoards(@PathVariable(name = "menuId") int menuId,
+                                    @RequestParam(name = "pageNum", defaultValue = "0") int pageNum) {
+        return boardService.getBoardsResponse(menuId, pageNum);
     }
 
     @GetMapping(path = "/board/{boardId}")

@@ -8,6 +8,7 @@ import java.util.List;
 
 @Data
 public class BoardsResponse {
+    private int totalCount;
     private List<Board> boards;
     private Menu menu;
 }

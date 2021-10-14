@@ -6,7 +6,9 @@ import com.example.pbp.dto.response.BoardsResponse;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface BoardService {
-    BoardsResponse getBoardsResponse(int menuId);
+    int BOARDS_LIMIT = 10;
+
+    BoardsResponse getBoardsResponse(int menuId, int startPageNum);
     BoardResponse getBoardResponseById(int boardId);
     @Transactional
     void addBoard(BoardRequest boardRequest);

@@ -3,8 +3,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.pbp.dao.BoardDao">
+
+    <select id="selectCountBoardsByMenu" resultType="int">
+        SELECT COUNT(*)
+        FROM board
+        WHERE menu_id = #{menuId}
+    </select>
     <select id="selectBoards" resultType="com.example.pbp.dto.Board">
-        SELECT id
+        SELECT board.id
+            , menu_id AS menuId
             , title
             , writer
             , update_date AS updateDate
@@ -14,6 +21,7 @@
         INNER JOIN menu
             ON board.menu_id = menu.id
         WHERE menu_id = #{menuId}
+        LIMIT #{start}, #{limit}
     </select>
     <select id = "selectBoardById" resultType="com.example.pbp.dto.Board">
         SELECT id

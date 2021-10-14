@@ -1,6 +1,7 @@
 package com.example.pbp.service.impl;
 
 import com.example.pbp.dao.BoardDao;
+import com.example.pbp.dao.MenuDao;
 import com.example.pbp.dto.request.BoardRequest;
 import com.example.pbp.dto.response.BoardResponse;
 import com.example.pbp.dto.response.BoardsResponse;
@@ -17,10 +18,15 @@ public class BoardServiceImpl implements BoardService {
     @Autowired
     private BoardDao boardDao;
 
+    @Autowired
+    private MenuDao menuDao;
+
     @Override
-    public BoardsResponse getBoardsResponse(int menuId) {
+    public BoardsResponse getBoardsResponse(int menuId, int startPageNum) {
         BoardsResponse boardsResponse = new BoardsResponse();
-        boardsResponse.setBoards(boardDao.selectBoards(menuId));
+        boardsResponse.setBoards(boardDao.selectBoards(menuId, startPageNum * BOARDS_LIMIT, BOARDS_LIMIT));
+        boardsResponse.setTotalCount(boardDao.selectCountBoardsByMenu(menuId));
+        boardsResponse.setMenu(menuDao.selectMenuByMenuId(menuId));
 
         return boardsResponse;
     }

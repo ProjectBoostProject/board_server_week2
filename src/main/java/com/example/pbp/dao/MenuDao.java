@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public interface MenuDao {
+    Menu selectMenuByMenuId(@Param("menuId") int menuId);
     List<Menu> selectMenusByName(String boardName, @Param("limit") int limit);
     int insertMenu(MenuRequest menuRequest);
 }
