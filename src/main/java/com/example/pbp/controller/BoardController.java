@@ -20,7 +20,7 @@ public class BoardController {
 
     @GetMapping(path = "/boards/{menuId}")
     public BoardsResponse getBoards(@PathVariable(name = "menuId") int menuId,
-                                    @RequestParam(name = "pageNum", defaultValue = "0") int pageNum) {
+                                    @RequestParam(name = "pageNum", defaultValue = "1") int pageNum) {
         return boardService.getBoardsResponse(menuId, pageNum);
     }
 

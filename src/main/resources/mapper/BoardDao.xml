@@ -42,7 +42,7 @@
             , password
         )
         VALUES (
-            ,#{menuId}
+            #{menuId}
             , #{title}
             , #{content}
             , #{writer}

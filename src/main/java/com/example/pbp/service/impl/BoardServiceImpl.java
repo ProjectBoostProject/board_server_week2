@@ -24,7 +24,7 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public BoardsResponse getBoardsResponse(int menuId, int startPageNum) {
         BoardsResponse boardsResponse = new BoardsResponse();
-        boardsResponse.setBoards(boardDao.selectBoards(menuId, startPageNum * BOARDS_LIMIT, BOARDS_LIMIT));
+        boardsResponse.setBoards(boardDao.selectBoards(menuId, (startPageNum - 1) * BOARDS_LIMIT, BOARDS_LIMIT));
         boardsResponse.setTotalCount(boardDao.selectCountBoardsByMenu(menuId));
         boardsResponse.setMenu(menuDao.selectMenuByMenuId(menuId));
 
