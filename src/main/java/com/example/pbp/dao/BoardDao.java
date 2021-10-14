@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface BoardDao {
-    List<Board> selectBoards();
+    List<Board> selectBoards(int menuId);
     Board selectBoardById(int boardId);
     int insertBoard(BoardRequest boardRequest);
     int deleteBoardById(int boardId);

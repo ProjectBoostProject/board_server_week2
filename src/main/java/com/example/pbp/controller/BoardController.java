@@ -18,9 +18,9 @@ public class BoardController {
     @Autowired
     private BoardService boardService;
 
-    @GetMapping(path = "/boards")
-    public BoardsResponse getBoards() {
-        return boardService.getBoardsResponse();
+    @GetMapping(path = "/boards/{menuId}")
+    public BoardsResponse getBoards(@PathVariable(name = "menuId") int menuId) {
+        return boardService.getBoardsResponse(menuId);
     }
 
     @GetMapping(path = "/board/{boardId}")

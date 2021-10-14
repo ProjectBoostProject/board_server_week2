@@ -8,7 +8,12 @@
             , title
             , writer
             , update_date AS updateDate
-            FROM board
+            , board_name AS boardName
+            , introduce
+        FROM board
+        INNER JOIN menu
+            ON board.menu_id = menu.id
+        WHERE menu_id = #{menuId}
     </select>
     <select id = "selectBoardById" resultType="com.example.pbp.dto.Board">
         SELECT id
@@ -22,13 +27,15 @@
     </select>
     <insert id="insertBoard" parameterType="com.example.pbp.dto.request.BoardRequest">
         INSERT INTO board(
-            title
+            menu_id
+            , title
             , content
             , writer
             , password
         )
         VALUES (
-            #{title}
+            ,#{menuId}
+            , #{title}
             , #{content}
             , #{writer}
             , #{password}

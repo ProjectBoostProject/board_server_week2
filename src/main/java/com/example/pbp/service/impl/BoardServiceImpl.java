@@ -18,9 +18,9 @@ public class BoardServiceImpl implements BoardService {
     private BoardDao boardDao;
 
     @Override
-    public BoardsResponse getBoardsResponse() {
+    public BoardsResponse getBoardsResponse(int menuId) {
         BoardsResponse boardsResponse = new BoardsResponse();
-        boardsResponse.setBoards(boardDao.selectBoards());
+        boardsResponse.setBoards(boardDao.selectBoards(menuId));
 
         return boardsResponse;
     }

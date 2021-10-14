@@ -6,8 +6,8 @@ CREATE TABLE Menu
 (
     id          INT     PRIMARY KEY AUTO_INCREMENT,
     board_name  VARCHAR(50),
-    introduce   VARCHAR(255);
-)
+    introduce   VARCHAR(255)
+);
 CREATE TABLE Board
 (
     id      INT          PRIMARY KEY AUTO_INCREMENT,
